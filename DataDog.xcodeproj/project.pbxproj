@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		E440C12121328BF900A4A221 /* DataDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12021328BF900A4A221 /* DataDog.swift */; };
 		E440C12421328E3500A4A221 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12321328E3500A4A221 /* Event.swift */; };
+		E440C12821330A1000A4A221 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12721330A1000A4A221 /* User.swift */; };
 		E4C9B8BA21327262009180FD /* DataDog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C9B8B821327262009180FD /* DataDog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E440C12021328BF900A4A221 /* DataDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDog.swift; sourceTree = "<group>"; };
 		E440C12321328E3500A4A221 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E440C12721330A1000A4A221 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E4C9B8B521327262009180FD /* DataDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C9B8B821327262009180FD /* DataDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataDog.h; sourceTree = "<group>"; };
 		E4C9B8B921327262009180FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,18 +36,11 @@
 		E440C11F21328BD800A4A221 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E440C12221328D9900A4A221 /* models */,
 				E440C12021328BF900A4A221 /* DataDog.swift */,
+				E440C12321328E3500A4A221 /* Event.swift */,
+				E440C12721330A1000A4A221 /* User.swift */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		E440C12221328D9900A4A221 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				E440C12321328E3500A4A221 /* Event.swift */,
-			);
-			path = models;
 			sourceTree = "<group>";
 		};
 		E4C9B8AB21327262009180FD = {
@@ -155,6 +150,7 @@
 			files = (
 				E440C12421328E3500A4A221 /* Event.swift in Sources */,
 				E440C12121328BF900A4A221 /* DataDog.swift in Sources */,
+				E440C12821330A1000A4A221 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
