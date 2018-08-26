@@ -76,6 +76,7 @@ Pod::Spec.new do |s|
   
   # --- Dependencies ----------------------------------------------------------- #
 
+  s.dependency 'Alamofire'
   s.dependency 'Moya', '~> 11.0'
   s.dependency 'SwiftyBeaver'
     
