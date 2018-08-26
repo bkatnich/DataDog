@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E440C12121328BF900A4A221 /* DataDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12021328BF900A4A221 /* DataDog.swift */; };
+		E440C12421328E3500A4A221 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12321328E3500A4A221 /* Event.swift */; };
 		E4C9B8BA21327262009180FD /* DataDog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C9B8B821327262009180FD /* DataDog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E440C12021328BF900A4A221 /* DataDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDog.swift; sourceTree = "<group>"; };
+		E440C12321328E3500A4A221 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E4C9B8B521327262009180FD /* DataDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C9B8B821327262009180FD /* DataDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataDog.h; sourceTree = "<group>"; };
 		E4C9B8B921327262009180FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +31,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E440C11F21328BD800A4A221 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E440C12221328D9900A4A221 /* models */,
+				E440C12021328BF900A4A221 /* DataDog.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E440C12221328D9900A4A221 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E440C12321328E3500A4A221 /* Event.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		E4C9B8AB21327262009180FD = {
 			isa = PBXGroup;
 			children = (
@@ -48,6 +69,7 @@
 			children = (
 				E4C9B8B821327262009180FD /* DataDog.h */,
 				E4C9B8B921327262009180FD /* Info.plist */,
+				E440C11F21328BD800A4A221 /* Classes */,
 			);
 			path = DataDog;
 			sourceTree = "<group>";
@@ -95,6 +117,7 @@
 				TargetAttributes = {
 					E4C9B8B421327262009180FD = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -130,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E440C12421328E3500A4A221 /* Event.swift in Sources */,
+				E440C12121328BF900A4A221 /* DataDog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +284,7 @@
 		E4C9B8BE21327262009180FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -275,6 +301,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.datadog.DataDog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -283,6 +310,7 @@
 		E4C9B8BF21327262009180FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
