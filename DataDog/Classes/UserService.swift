@@ -22,6 +22,8 @@ public class UserService
      */
     public class func retrieveUsers()
     {
+        log.debug("called")
+        
         let provider = MoyaProvider<UserEndpoint>()
         provider.request(.retrieveUsers) { result in
         

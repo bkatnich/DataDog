@@ -73,7 +73,12 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "DataDog/**/*.{h,m,swift}"
+  
+  # --- Dependencies ----------------------------------------------------------- #
 
+  s.dependency 'Moya', '~> 11.0'
+  s.dependency 'SwiftyBeaver'
+    
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  If your library depends on compiler flags you can set them in the xcconfig hash

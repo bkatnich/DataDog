@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Moya
 import SwiftyBeaver
 
 public let log = SwiftyBeaver.self
@@ -53,81 +52,5 @@ public class DataDog
             "\nversion: " + Bundle.versionAndBuildNumber()
         
         return debugStatus
-    }
-
-}
-
-
-/**
- *
- */
-public enum DataDogEndpoint
-{
-
-}
-
-
-/**
- *
- */
-extension DataDogEndpoint: TargetType
-{
-//
-    // Base URL
-    //
-    public var baseURL: URL { return URL(string: "https://api.datadoghq.com/api/v1")! }
-    
-    //
-    // Paths
-    //
-    public var path: String
-    {
-        switch self
-        {
-            
-        }
-    }
-    
-    //
-    // HTTP Methods
-    //
-    public var method: Moya.Method
-    {
-        switch self
-        {
-        
-        }
-    }
-    
-    //
-    // Tasks
-    //
-    public var task: Task
-    {
-        switch self
-        {
-            
-        }
-    }
-    
-    //
-    // Sample Data
-    //
-    public var sampleData: Data
-    {
-        switch self
-        {
-        
-        }
-    }
-    
-    //
-    // Headers
-    //
-    public var headers: [String: String]?
-    {
-        return [
-            "Content-type": "application/json"
-        ]
     }
 }
