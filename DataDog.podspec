@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DataDog"
-  s.version      = "0.3.0"
+  s.version      = "0.4.0"
   s.summary      = "iOS SDK for the DataDog REST API."
 
   # This description is used to generate tags and improve search results.
@@ -62,7 +62,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/bkatnich/DataDog.git", :tag => "0.3.0" }
+  s.source       = { :git => "https://github.com/bkatnich/DataDog.git", :tag => "0.4.0" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
