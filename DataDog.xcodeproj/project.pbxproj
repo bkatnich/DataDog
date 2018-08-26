@@ -10,13 +10,25 @@
 		E440C12121328BF900A4A221 /* DataDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12021328BF900A4A221 /* DataDog.swift */; };
 		E440C12421328E3500A4A221 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12321328E3500A4A221 /* Event.swift */; };
 		E440C12821330A1000A4A221 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12721330A1000A4A221 /* User.swift */; };
+		E440C12A21333D0C00A4A221 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440C12921333D0C00A4A221 /* UserService.swift */; };
+		E45D0ADD213341300080F3E4 /* Formatter_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D0ADC213341300080F3E4 /* Formatter_Extension.swift */; };
+		E45D0ADF2133419E0080F3E4 /* Bundle_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D0ADE2133419E0080F3E4 /* Bundle_Extension.swift */; };
+		E45D0AE1213343DF0080F3E4 /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D0AE0213343DF0080F3E4 /* String_Extension.swift */; };
 		E4C9B8BA21327262009180FD /* DataDog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C9B8B821327262009180FD /* DataDog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFFC50BC3402F35D4D547EE9 /* Pods_DataDog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3EF12431D62DAF2CCED1F /* Pods_DataDog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F8CDDBAC3F767608660E2F8 /* Pods-DataDog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataDog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataDog/Pods-DataDog.debug.xcconfig"; sourceTree = "<group>"; };
+		346C497AB0A955D17CFEBBD0 /* Pods-DataDog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataDog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataDog/Pods-DataDog.release.xcconfig"; sourceTree = "<group>"; };
+		60C3EF12431D62DAF2CCED1F /* Pods_DataDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E440C12021328BF900A4A221 /* DataDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDog.swift; sourceTree = "<group>"; };
 		E440C12321328E3500A4A221 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E440C12721330A1000A4A221 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E440C12921333D0C00A4A221 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E45D0ADC213341300080F3E4 /* Formatter_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter_Extension.swift; sourceTree = "<group>"; };
+		E45D0ADE2133419E0080F3E4 /* Bundle_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle_Extension.swift; sourceTree = "<group>"; };
+		E45D0AE0213343DF0080F3E4 /* String_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extension.swift; sourceTree = "<group>"; };
 		E4C9B8B521327262009180FD /* DataDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C9B8B821327262009180FD /* DataDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataDog.h; sourceTree = "<group>"; };
 		E4C9B8B921327262009180FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,20 +39,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFFC50BC3402F35D4D547EE9 /* Pods_DataDog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9ACF5F8576D23EFB4C1333F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60C3EF12431D62DAF2CCED1F /* Pods_DataDog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9516DC09EBD00798F6D8229 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F8CDDBAC3F767608660E2F8 /* Pods-DataDog.debug.xcconfig */,
+				346C497AB0A955D17CFEBBD0 /* Pods-DataDog.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E440C11F21328BD800A4A221 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E45D0ADB2133411C0080F3E4 /* Extensions */,
 				E440C12021328BF900A4A221 /* DataDog.swift */,
 				E440C12321328E3500A4A221 /* Event.swift */,
 				E440C12721330A1000A4A221 /* User.swift */,
+				E440C12921333D0C00A4A221 /* UserService.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		E45D0ADB2133411C0080F3E4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E45D0ADE2133419E0080F3E4 /* Bundle_Extension.swift */,
+				E45D0ADC213341300080F3E4 /* Formatter_Extension.swift */,
+				E45D0AE0213343DF0080F3E4 /* String_Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E4C9B8AB21327262009180FD = {
@@ -48,6 +90,8 @@
 			children = (
 				E4C9B8B721327262009180FD /* DataDog */,
 				E4C9B8B621327262009180FD /* Products */,
+				B9516DC09EBD00798F6D8229 /* Pods */,
+				9ACF5F8576D23EFB4C1333F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +131,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4C9B8BD21327262009180FD /* Build configuration list for PBXNativeTarget "DataDog" */;
 			buildPhases = (
+				1F116101C7B3307A1F3B9E07 /* [CP] Check Pods Manifest.lock */,
 				E4C9B8B021327262009180FD /* Sources */,
 				E4C9B8B121327262009180FD /* Frameworks */,
 				E4C9B8B221327262009180FD /* Headers */,
@@ -143,13 +188,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F116101C7B3307A1F3B9E07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DataDog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E4C9B8B021327262009180FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E440C12A21333D0C00A4A221 /* UserService.swift in Sources */,
+				E45D0ADF2133419E0080F3E4 /* Bundle_Extension.swift in Sources */,
 				E440C12421328E3500A4A221 /* Event.swift in Sources */,
 				E440C12121328BF900A4A221 /* DataDog.swift in Sources */,
+				E45D0AE1213343DF0080F3E4 /* String_Extension.swift in Sources */,
+				E45D0ADD213341300080F3E4 /* Formatter_Extension.swift in Sources */,
 				E440C12821330A1000A4A221 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +349,7 @@
 		};
 		E4C9B8BE21327262009180FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F8CDDBAC3F767608660E2F8 /* Pods-DataDog.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -305,6 +376,7 @@
 		};
 		E4C9B8BF21327262009180FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 346C497AB0A955D17CFEBBD0 /* Pods-DataDog.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

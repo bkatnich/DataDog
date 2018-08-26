@@ -1,0 +1,6 @@
+framework module Pods_DataDog {
+  umbrella header "Pods-DataDog-umbrella.h"
+
+  export *
+  module * { export * }
+}
