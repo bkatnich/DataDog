@@ -8,7 +8,7 @@
 
 import Foundation
 import Moya
-import Result
+//import Result
 
 
 /**
@@ -19,27 +19,23 @@ public class UserService
     // MARK: Retrieve API
     
     /**
-     * Retrieve all users.
+     * Retrieve a specific user by their handle identifier.
      *
-     * @param completion ([User]?, Error?) -> Void
+     * @param handle String handle name of the user.
+     * @param completion (User?, Error?) -> Void
      */
-    public class func retrieveUsers(completion: @escaping ([User]?, Error?) -> Void)
+    public class func retrieveUser(handle: String, completion: @escaping (User?, Error?) -> Void)
     {
-        log.debug("called")
-        
         let provider = MoyaProvider<UserTargetType>()
         
-        provider.request(.retrieveUsers) { result in
+        provider.request(.retrieveUser(handle: handle)) { result in
         
-            if let response = result.value
-            {
-                log.debug("Request URL: \(String(describing: response.request?.url))")
-            }
-            else
-            {
-                log.debug("No response found!!")
-            }
+            // DEBUG only
+            DataDog.debugResponse(response: result.value)
         
+            //
+            // Handle result
+            //
             switch result
             {
                 //
@@ -50,6 +46,68 @@ public class UserService
                     do
                     {
                         let filteredResponse = try response.filterSuccessfulStatusCodes()
+                        
+                        // DEBUG only
+                        DataDog.debugResponseSuccess(response: filteredResponse)
+                        
+                        let decoder = JSONDecoder()
+                        decoder.dateDecodingStrategy = .secondsSince1970
+                        
+                        let user = try filteredResponse.map(User.self,
+                            atKeyPath: "user",
+                            using: decoder)
+                    
+                        completion(user, nil)
+                        return
+                    }
+                    catch let error
+                    {
+                        completion(nil, error)
+                        return
+                    }
+                
+                //
+                // Failure
+                //
+                case let .failure(error):
+        
+                    completion(nil, error)
+                    return
+            }
+        }
+    }
+    
+    
+    /**
+     * Retrieve all users.
+     *
+     * @param completion ([User]?, Error?) -> Void
+     */
+    public class func retrieveUsers(completion: @escaping ([User]?, Error?) -> Void)
+    {
+        let provider = MoyaProvider<UserTargetType>()
+        
+        provider.request(.retrieveUsers) { result in
+        
+            // DEBUG only
+            DataDog.debugResponse(response: result.value)
+        
+            //
+            // Handle result
+            //
+            switch result
+            {
+                //
+                // Success
+                //
+                case let .success(response):
+        
+                    do
+                    {
+                        let filteredResponse = try response.filterSuccessfulStatusCodes()
+                        
+                        // DEBUG only
+                        DataDog.debugResponseSuccess(response: filteredResponse)
                         
                         let decoder = JSONDecoder()
                         decoder.dateDecodingStrategy = .secondsSince1970
@@ -85,6 +143,7 @@ public class UserService
  */
 public enum UserTargetType
 {
+    case retrieveUser(handle: String)
     case retrieveUsers
 }
 
@@ -112,6 +171,10 @@ extension UserTargetType: TargetType
             //
             // Retreive
             //
+            case .retrieveUser(let handle):
+            
+                return "/user/\(handle)"
+            
             case .retrieveUsers:
             
                 return "/user"
@@ -128,7 +191,7 @@ extension UserTargetType: TargetType
             //
             // Retrieve
             //
-            case .retrieveUsers:
+            case .retrieveUser, .retrieveUsers:
             
                 return .get
         }
@@ -144,7 +207,7 @@ extension UserTargetType: TargetType
             //
             // Retrieve
             //
-            case .retrieveUsers:
+            case .retrieveUser, .retrieveUsers:
             
                 return .requestParameters(parameters:
                     [
@@ -165,6 +228,10 @@ extension UserTargetType: TargetType
             //
             // Retrieve
             //
+            case .retrieveUser(let handle):
+            
+                return "User test data for \(handle)".utf8Encoded
+            
             case .retrieveUsers:
             
                 return "Users test data".utf8Encoded

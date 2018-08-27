@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Moya
 import SwiftyBeaver
 
 public let log = SwiftyBeaver.self
@@ -48,10 +49,52 @@ public class DataDog
         //
         let debugStatus =
             "-- Application --" +
-            "\n\nname: " + Bundle.appName() +
-            "\nversion: " + Bundle.versionAndBuildNumber() +
-            "\n\n"
+            "\n\nname: \(Bundle.appName())" +
+            "\nversion: \(Bundle.versionAndBuildNumber())\n\n"
         
         return debugStatus
     }
+    
+    #if DEBUG
+    
+    /**
+     *
+     */
+    public static func debugResponse(response: Response?)
+    {
+        // Check for nil
+        if response == nil
+        {
+            log.warning("No response object")
+            return
+        }
+        
+        log.debug("\n\nRequest URL: \(String(describing: response?.request?.url))")
+    }
+    
+    /**
+     *
+     */
+    public static func debugResponseSuccess(response: Response?)
+    {
+        // Check for nil
+        if response == nil
+        {
+            log.warning("No response object")
+            return
+        }
+        
+        do
+        {
+            let json = try response?.mapJSON()
+        
+            log.debug("\n\nJSON returned: \(String(describing: json))")
+        }
+        catch let error
+        {
+            log.error(error)
+        }
+    }
+    
+    #endif
 }
