@@ -11,51 +11,68 @@ import Moya
 
 
 /**
- *
+ *  The UserService encapsulates all public facing User API calls.
  */
 public class UserService
 {
     // MARK: Retrieve API
     
     /**
+     * Retrieve all users.
      *
+     * @param completion ([User]?, Error?) -> Void
      */
-    public class func retrieveUsers()
+    public class func retrieveUsers(completion: @escaping ([User]?, Error?) -> Void)
     {
         log.debug("called")
         
-        let provider = MoyaProvider<UserEndpoint>()
+        let provider = MoyaProvider<UserTargetType>()
+        
         provider.request(.retrieveUsers) { result in
+        
+            if let response = result.value
+            {
+                log.debug("Request URL: \(String(describing: response.request?.url))")
+            }
+            else
+            {
+                log.debug("No response found!!")
+            }
         
             switch result
             {
+                //
+                // Success
+                //
                 case let .success(response):
         
-                    print("\n\nSuccess:")
-                    print("\n\n\tRequest URL: \(String(describing: response.request!))")
-                    
                     do
                     {
                         let filteredResponse = try response.filterSuccessfulStatusCodes()
-                        let json = try filteredResponse.mapJSON()
-                        
-                        print("\n\t\(String(describing: json))\n\n")
                         
                         let decoder = JSONDecoder()
                         decoder.dateDecodingStrategy = .secondsSince1970
                         
-                        let users = try filteredResponse.map([User].self, atKeyPath: "users", using: decoder)
+                        let users = try filteredResponse.map([User].self,
+                            atKeyPath: "users",
+                            using: decoder)
                     
-                        print("\n\tEvents: \(String(describing: users))")
+                        completion(users, nil)
+                        return
                     }
                     catch let error
                     {
-                        print("\n\nFailure on successful response: \(error)\n\n")
+                        completion(nil, error)
+                        return
                     }
                 
+                //
+                // Failure
+                //
                 case let .failure(error):
         
-                    print("\n\nFailure on initial call: \(error)\n\n")
+                    completion(nil, error)
+                    return
             }
         }
     }
@@ -63,18 +80,18 @@ public class UserService
 
 
 /**
- *
+ * The User target enumeration types.
  */
-public enum UserEndpoint
+public enum UserTargetType
 {
     case retrieveUsers
 }
 
 
 /**
- *
+ * The User target type implementations.
  */
-extension UserEndpoint: TargetType
+extension UserTargetType: TargetType
 {
     //
     // Base URL

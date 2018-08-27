@@ -49,7 +49,8 @@ public class DataDog
         let debugStatus =
             "-- Application --" +
             "\n\nname: " + Bundle.appName() +
-            "\nversion: " + Bundle.versionAndBuildNumber()
+            "\nversion: " + Bundle.versionAndBuildNumber() +
+            "\n\n"
         
         return debugStatus
     }
