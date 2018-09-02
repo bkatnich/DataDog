@@ -24,6 +24,7 @@ public class DataDog
      */
     public static func start()
     {
+#if DEBUG
         //
         // Logging
         //
@@ -35,8 +36,11 @@ public class DataDog
         // Log startup state
         //
         log.info("\n\n" + self.debugStatus() + "\n\n")
+#endif
     }
-    
+
+
+#if DEBUG
     /**
      * Retrieve the current debug values in a formatted String.
      *
@@ -54,11 +58,11 @@ public class DataDog
         
         return debugStatus
     }
-    
-    #if DEBUG
-    
+
     /**
+     * General debug output for a Response.
      *
+     * @param response Response?
      */
     public static func debugResponse(response: Response?)
     {
@@ -73,7 +77,9 @@ public class DataDog
     }
     
     /**
+     * General debug output for a Response with a successful outcome.
      *
+     * @param response Response?
      */
     public static func debugResponseSuccess(response: Response?)
     {
@@ -96,5 +102,5 @@ public class DataDog
         }
     }
     
-    #endif
+#endif
 }

@@ -1,38 +1,41 @@
 //
-//  UserService.swift
+//  OrganizationService.swift
 //  DataDog
 //
-//  Created by Britton Katnich on 2018-08-26.
+//  Created by Britton Katnich on 2018-08-27.
 //  Copyright © 2018 DataDog. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Moya
-//import Result
 
 
 /**
- *  The UserService encapsulates all public facing User API calls.
+ * The service encapsulates all public facing REST API for the Organization.
+ *
+ * @see https://docs.datadoghq.com/api/?lang=python#events.
  */
-public class UserService
+public class OrganizationService: DataDogService
 {
-    // MARK: Retrieve API
+    // MARK: -- GET ---
     
     /**
-     * Retrieve a specific user by their handle identifier.
+     * Get a specific Organization by their public identifier.
      *
-     * @param handle String handle name of the user.
-     * @param completion (User?, Error?) -> Void
+     * @param publicId Int public identifier of the Organization.
+     * @param completion (Organiztion?, Error?) -> Void
+     *
+     * @see https://docs.datadoghq.com/api/?lang=python#get-organization
      */
-    public class func retrieveUser(handle: String, completion: @escaping (User?, Error?) -> Void)
+    public class func getOrganization(publicId: Int, completion: @escaping (Organization?, Error?) -> Void)
     {
-        let provider = MoyaProvider<UserTargetType>()
+        let provider = MoyaProvider<OrganizationTargetType>()
+        provider.request(.getOrganization(publicId: publicId)) { result in
         
-        provider.request(.retrieveUser(handle: handle)) { result in
-        
-            // DEBUG only
+            #if DEBUG
             DataDog.debugResponse(response: result.value)
-        
+            #endif
+            
             //
             // Handle result
             //
@@ -47,17 +50,18 @@ public class UserService
                     {
                         let filteredResponse = try response.filterSuccessfulStatusCodes()
                         
-                        // DEBUG only
+                        #if DEBUG
                         DataDog.debugResponseSuccess(response: filteredResponse)
+                        #endif
                         
                         let decoder = JSONDecoder()
                         decoder.dateDecodingStrategy = .secondsSince1970
                         
-                        let user = try filteredResponse.map(User.self,
-                            atKeyPath: "user",
+                        let organization = try filteredResponse.map(Organization.self,
+                            atKeyPath: "org",
                             using: decoder)
                     
-                        completion(user, nil)
+                        completion(organization, nil)
                         return
                     }
                     catch let error
@@ -79,18 +83,18 @@ public class UserService
     
     
     /**
-     * Retrieve all users.
+     * Get all organizations.
      *
-     * @param completion ([User]?, Error?) -> Void
+     * @param completion ([Organization]?, Error?) -> Void
      */
-    public class func retrieveUsers(completion: @escaping ([User]?, Error?) -> Void)
+    public class func getOrganizations(completion: @escaping ([Organization]?, Error?) -> Void)
     {
-        let provider = MoyaProvider<UserTargetType>()
+        let provider = MoyaProvider<OrganizationTargetType>()
+        provider.request(.getOrganizations) { result in
         
-        provider.request(.retrieveUsers) { result in
-        
-            // DEBUG only
+            #if DEBUG
             DataDog.debugResponse(response: result.value)
+            #endif
         
             //
             // Handle result
@@ -106,17 +110,18 @@ public class UserService
                     {
                         let filteredResponse = try response.filterSuccessfulStatusCodes()
                         
-                        // DEBUG only
+                        #if DEBUG
                         DataDog.debugResponseSuccess(response: filteredResponse)
+                        #endif
                         
                         let decoder = JSONDecoder()
                         decoder.dateDecodingStrategy = .secondsSince1970
                         
-                        let users = try filteredResponse.map([User].self,
-                            atKeyPath: "users",
+                        let organizations = try filteredResponse.map([Organization].self,
+                            atKeyPath: "orgs",
                             using: decoder)
                     
-                        completion(users, nil)
+                        completion(organizations, nil)
                         return
                     }
                     catch let error
@@ -139,26 +144,26 @@ public class UserService
 
 
 /**
- * The User target enumeration types.
+ * The Organization target enumeration types.
  */
-public enum UserTargetType
+public enum OrganizationTargetType
 {
-    case retrieveUser(handle: String)
-    case retrieveUsers
+    case getOrganization(publicId: Int)
+    case getOrganizations
 }
 
 
 /**
- * The User target type implementations.
+ * The Organization target type implementations.
  */
-extension UserTargetType: TargetType
+extension OrganizationTargetType: TargetType
 {
     //
     // Base URL
     //
     public var baseURL: URL
     {
-        return URL(string: "https://api.datadoghq.com/api/v1")!
+        return DataDogService.baseUrl()
     }
     
     //
@@ -169,15 +174,18 @@ extension UserTargetType: TargetType
         switch self
         {
             //
-            // Retreive
+            // Get
             //
-            case .retrieveUser(let handle):
+            case .getOrganization(let publicId):
             
-                return "/user/\(handle)"
+                return "/org/\(publicId)"
             
-            case .retrieveUsers:
+            //
+            // Get All
+            //
+            case .getOrganizations:
             
-                return "/user"
+                return "/org"
         }
     }
     
@@ -189,9 +197,9 @@ extension UserTargetType: TargetType
         switch self
         {
             //
-            // Retrieve
+            // Get & Get All
             //
-            case .retrieveUser, .retrieveUsers:
+            case .getOrganization, .getOrganizations:
             
                 return .get
         }
@@ -205,15 +213,11 @@ extension UserTargetType: TargetType
         switch self
         {
             //
-            // Retrieve
+            // Get & Get All
             //
-            case .retrieveUser, .retrieveUsers:
+            case .getOrganization, .getOrganizations:
             
-                return .requestParameters(parameters:
-                    [
-                        "api_key" : "c1289ee5efac116b8970f19104c78825",
-                        "application_key" : "7a1ebbde114adfc527833ad10af4016525213884"
-                    ],
+                return .requestParameters(parameters: DataDogService.baseParameters(),
                     encoding: URLEncoding.queryString)
         }
     }
@@ -226,15 +230,18 @@ extension UserTargetType: TargetType
         switch self
         {
             //
-            // Retrieve
+            // Get
             //
-            case .retrieveUser(let handle):
+            case .getOrganization(let publicId):
             
-                return "User test data for \(handle)".utf8Encoded
+                return "Organization test data for \(publicId)".utf8Encoded
             
-            case .retrieveUsers:
+            //
+            // Get All
+            //
+            case .getOrganizations:
             
-                return "Users test data".utf8Encoded
+                return "Organizations test data".utf8Encoded
         }
     }
     
@@ -243,8 +250,6 @@ extension UserTargetType: TargetType
     //
     public var headers: [String: String]?
     {
-        return [
-            "Content-type": "application/json"
-        ]
+        return DataDogService.baseHeaders()
     }
 }

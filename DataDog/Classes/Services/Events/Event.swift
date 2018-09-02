@@ -10,44 +10,49 @@ import Foundation
 
 
 /**
+ * The Event model.
  *
+ * @see https://docs.datadoghq.com/api/?lang=python#events.
  */
 public struct Event: Codable
 {
-    // MARK: -- Properties --
+    // MARK: -- CodingKeys --
     
     private enum CodingKeys: String, CodingKey
     {
+        case id
+        case title
+        case text
         case alertType = "alert_type"
         case comments
         case dateHappened = "date_happened"
         case deviceName = "device_name"
         case host
-        case id
         case isAggregate = "is_aggregate"
         case payload
         case priority
         case resource
         case tags
-        case text
-        case title
         case url
     }
     
-    public var alertType: EventStatus
-    public var comments: Array<String>
+    // MARK: -- Properties --
+    
+    public var id: Int
+    public var title: String
+    public var text: String
+    public var url: String
     public var dateHappened: Date
+    
+    public var alertType: EventStatus
     public var deviceName: String
     public var host: String
-    public var id: Int
     public var isAggregate: Bool
     public var payload: String
     public var priority: EventPriority
     public var resource: String
+    public var comments: Array<String>
     public var tags: Array<String>
-    public var text: String
-    public var title: String
-    public var url: String
     
     
     // MARK: -- Lifecycle --
@@ -76,6 +81,9 @@ public struct Event: Codable
 }
 
 
+/**
+ * Extension implementing Codable.
+ */
 public extension Event
 {
     /**

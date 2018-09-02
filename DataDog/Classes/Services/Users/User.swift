@@ -10,11 +10,13 @@ import Foundation
 
 
 /**
+ * The User model.
  *
+ * @see https://docs.datadoghq.com/api/?lang=python#users
  */
 public struct User: Codable
 {
-    // MARK: -- Properties --
+    // MARK: -- CodingKeys --
     
     private enum CodingKeys: String, CodingKey
     {
@@ -28,6 +30,8 @@ public struct User: Codable
         case isVerified = "verified"
         case isDisabled = "disabled"
     }
+    
+    // MARK: -- Properties --
     
     public var name: String
     public var handle: String
@@ -74,10 +78,13 @@ public struct User: Codable
 }
 
 
+/**
+ * Extension implementing Codable.
+ */
 public extension User
 {
     /**
-     * Dictionary
+     * Initialize from Dictionary of values.
      */
     init(from info: Dictionary<String, Any>)
     {
@@ -95,7 +102,7 @@ public extension User
     
     
     /**
-     * Decodable
+     * Decodable initializer.
      */
     init(from decoder: Decoder) throws
     {
@@ -116,7 +123,7 @@ public extension User
     
     
     /**
-     * Encodable
+     * Encodable writer.
      */
     func encode(to encoder: Encoder) throws
     {
