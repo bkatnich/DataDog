@@ -184,7 +184,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = DataDog;
+				ORGANIZATIONNAME = "Britton Katnich";
 				TargetAttributes = {
 					E43EC7682138F872009E3548 = {
 						CreatedOnToolsVersion = 9.4.1;

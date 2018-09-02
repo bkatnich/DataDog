@@ -3,7 +3,7 @@
 //  DataDog
 //
 //  Created by Britton Katnich on 2018-08-27.
-//  Copyright © 2018 DataDog. All rights reserved.
+//  Copyright © 2018 Britton Katnich. All rights reserved.
 //
 
 import UIKit
