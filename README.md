@@ -1,5 +1,5 @@
 <p align="center">
-    <img width=50% src="https://github.com/bkatnich/DataDog/blob/master/media/DataDog_Logo.png">
+    <img width=50% src="https://github.com/bkatnich/DataDog/blob/master/media/Datadog_Logo.png">
 </p>
 
 <p align="center">
