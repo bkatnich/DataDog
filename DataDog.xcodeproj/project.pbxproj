@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E49ABBCA213C672C007296F8 /* DataDog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C9B8B821327262009180FD /* DataDog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E49ABBCD213C6C4E007296F8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBCC213C6C4E007296F8 /* README.md */; };
+		E49ABBCF213C6C61007296F8 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBCE213C6C61007296F8 /* .travis.yml */; };
+		E49ABBD1213C6C7F007296F8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBD0213C6C7F007296F8 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		E46433E621344D90001F18F3 /* DataDogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDogService.swift; sourceTree = "<group>"; };
 		E46433E9213451AE001F18F3 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		E46433EB2134563D001F18F3 /* OrganizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationService.swift; sourceTree = "<group>"; };
+		E49ABBCC213C6C4E007296F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E49ABBCE213C6C61007296F8 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		E49ABBD0213C6C7F007296F8 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E4C2D4862133CF4900A4FD7B /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		E4C9B8B821327262009180FD /* DataDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataDog.h; sourceTree = "<group>"; };
 		E4C9B8B921327262009180FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +93,16 @@
 			path = Organizations;
 			sourceTree = "<group>";
 		};
+		E49ABBCB213C6C16007296F8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				E49ABBD0213C6C7F007296F8 /* .gitignore */,
+				E49ABBCE213C6C61007296F8 /* .travis.yml */,
+				E49ABBCC213C6C4E007296F8 /* README.md */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		E4C2D4832133CF1100A4FD7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				E4C9B8B721327262009180FD /* DataDog */,
+				E49ABBCB213C6C16007296F8 /* Configuration */,
 				E4C9B8B621327262009180FD /* Products */,
 				B9516DC09EBD00798F6D8229 /* Pods */,
 				9ACF5F8576D23EFB4C1333F2 /* Frameworks */,
@@ -213,6 +230,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49ABBCF213C6C61007296F8 /* .travis.yml in Resources */,
+				E49ABBD1213C6C7F007296F8 /* .gitignore in Resources */,
+				E49ABBCD213C6C4E007296F8 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
