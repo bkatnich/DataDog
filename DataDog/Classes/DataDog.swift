@@ -14,7 +14,7 @@ public let log = SwiftyBeaver.self
 
 
 /**
- *
+ * The entry point for usage of the SDK.
  */
 public class DataDog
 {
@@ -101,6 +101,5 @@ public class DataDog
             log.error(error)
         }
     }
-    
 #endif
 }
