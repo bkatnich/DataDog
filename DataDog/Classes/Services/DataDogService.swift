@@ -30,7 +30,7 @@ public class DataDogService
     public class func baseParameters() -> [String : Any]
     {
         return [
-            "api_key" : ",
+            "api_key" : "",
             "application_key" : ""
         ]
     }
