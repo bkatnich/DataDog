@@ -6,6 +6,10 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E49ABBCA213C672C007296F8 /* DataDog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C9B8B821327262009180FD /* DataDog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		0F8CDDBAC3F767608660E2F8 /* Pods-DataDog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataDog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataDog/Pods-DataDog.debug.xcconfig"; sourceTree = "<group>"; };
 		346C497AB0A955D17CFEBBD0 /* Pods-DataDog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataDog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataDog/Pods-DataDog.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49ABBCA213C672C007296F8 /* DataDog.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
