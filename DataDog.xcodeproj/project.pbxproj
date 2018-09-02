@@ -11,6 +11,7 @@
 		E49ABBCD213C6C4E007296F8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBCC213C6C4E007296F8 /* README.md */; };
 		E49ABBCF213C6C61007296F8 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBCE213C6C61007296F8 /* .travis.yml */; };
 		E49ABBD1213C6C7F007296F8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBD0213C6C7F007296F8 /* .gitignore */; };
+		E49ABBD4213C6E0B007296F8 /* Datadog_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBD3213C6E0B007296F8 /* Datadog_Logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E49ABBCC213C6C4E007296F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E49ABBCE213C6C61007296F8 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		E49ABBD0213C6C7F007296F8 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E49ABBD3213C6E0B007296F8 /* Datadog_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Datadog_Logo.png; sourceTree = "<group>"; };
 		E4C2D4862133CF4900A4FD7B /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		E4C9B8B821327262009180FD /* DataDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataDog.h; sourceTree = "<group>"; };
 		E4C9B8B921327262009180FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,11 +98,20 @@
 		E49ABBCB213C6C16007296F8 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				E49ABBD2213C6E0B007296F8 /* media */,
 				E49ABBD0213C6C7F007296F8 /* .gitignore */,
 				E49ABBCE213C6C61007296F8 /* .travis.yml */,
 				E49ABBCC213C6C4E007296F8 /* README.md */,
 			);
 			name = Configuration;
+			sourceTree = "<group>";
+		};
+		E49ABBD2213C6E0B007296F8 /* media */ = {
+			isa = PBXGroup;
+			children = (
+				E49ABBD3213C6E0B007296F8 /* Datadog_Logo.png */,
+			);
+			path = media;
 			sourceTree = "<group>";
 		};
 		E4C2D4832133CF1100A4FD7B /* Services */ = {
@@ -233,6 +244,7 @@
 				E49ABBCF213C6C61007296F8 /* .travis.yml in Resources */,
 				E49ABBD1213C6C7F007296F8 /* .gitignore in Resources */,
 				E49ABBCD213C6C4E007296F8 /* README.md in Resources */,
+				E49ABBD4213C6E0B007296F8 /* Datadog_Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
