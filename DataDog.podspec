@@ -83,6 +83,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'Alamofire', '~> 4.7.3'
   s.dependency 'Moya', '~> 11.0'
+  s.dependency 'Result', '~> 3.2.4'
   s.dependency 'SwiftyBeaver', '~> 1.6.0'
 
 end
