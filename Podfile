@@ -4,7 +4,7 @@ target 'DataDog' do
   use_frameworks!
 
     pod 'Moya', '~> 11.0'
-    pod 'SwiftyBeaver'
+    pod 'SwiftyBeaver', '~> 1.6.0'
 
 end
 

@@ -16,16 +16,16 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DataDog"
-  s.version      = "0.5.0"
-  s.summary      = "iOS SDK for the DataDog REST API."
+  s.version      = "0.6.0"
+  s.summary      = "An iOS SDK library for interacting with the DataDog REST API."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "An iOS SDK library for interacting with the DataDog REST API."
-  s.homepage     = "https://www.datadoghq.com"
+  s.description  = "This is a convenience library to enable easy access to your DataDog data in an iOS application"
+  s.homepage     = "https://github.com/bkatnich/DataDog"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -55,6 +55,7 @@ Pod::Spec.new do |s|
   #
 
   s.platform     = :ios, "11.0"
+  s.swift_version = '4.2'
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -62,7 +63,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/bkatnich/DataDog.git", :tag => "0.5.0" }
+  s.source       = { :git => "https://github.com/bkatnich/DataDog.git", :tag => "#{s.version}" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -72,21 +73,16 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "DataDog/**/*.{h,m,swift}"
-  
-  # --- Dependencies ----------------------------------------------------------- #
+  s.source_files  = "Classes", "DataDog/Classes/**/*.{swift}"
 
-  s.dependency 'Alamofire'
-  s.dependency 'Result'
-  s.dependency 'Moya', '~> 11.0'
-  s.dependency 'SwiftyBeaver'
-    
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  If your library depends on compiler flags you can set them in the xcconfig hash
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  s.swift_version = "4.2"
+  s.dependency 'Alamofire', '~> 4.7.3'
+  s.dependency 'Moya', '~> 11.0'
+  s.dependency 'SwiftyBeaver', '~> 1.6.0'
 
 end

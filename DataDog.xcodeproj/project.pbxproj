@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E49ABBCA213C672C007296F8 /* DataDog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C9B8B821327262009180FD /* DataDog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A10734B7007EC88F88BAA51A /* Pods_DataDog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3EF12431D62DAF2CCED1F /* Pods_DataDog.framework */; };
+		E423B9A6213E42E700B3B375 /* DataDog.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E423B9A5213E42E600B3B375 /* DataDog.podspec */; };
+		E49ABBCA213C672C007296F8 /* DataDog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C9B8B821327262009180FD /* DataDog.h */; };
 		E49ABBCD213C6C4E007296F8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBCC213C6C4E007296F8 /* README.md */; };
 		E49ABBCF213C6C61007296F8 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBCE213C6C61007296F8 /* .travis.yml */; };
 		E49ABBD1213C6C7F007296F8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E49ABBD0213C6C7F007296F8 /* .gitignore */; };
@@ -18,6 +20,7 @@
 		0F8CDDBAC3F767608660E2F8 /* Pods-DataDog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataDog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataDog/Pods-DataDog.debug.xcconfig"; sourceTree = "<group>"; };
 		346C497AB0A955D17CFEBBD0 /* Pods-DataDog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataDog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataDog/Pods-DataDog.release.xcconfig"; sourceTree = "<group>"; };
 		60C3EF12431D62DAF2CCED1F /* Pods_DataDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E423B9A5213E42E600B3B375 /* DataDog.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataDog.podspec; sourceTree = "<group>"; };
 		E43EC7692138F872009E3548 /* DataDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E440C12021328BF900A4A221 /* DataDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDog.swift; sourceTree = "<group>"; };
 		E440C12321328E3500A4A221 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10734B7007EC88F88BAA51A /* Pods_DataDog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 				E49ABBD2213C6E0B007296F8 /* media */,
 				E49ABBD0213C6C7F007296F8 /* .gitignore */,
 				E49ABBCE213C6C61007296F8 /* .travis.yml */,
+				E423B9A5213E42E600B3B375 /* DataDog.podspec */,
 				E49ABBCC213C6C4E007296F8 /* README.md */,
 			);
 			name = Configuration;
@@ -190,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E43EC77A2138F872009E3548 /* Build configuration list for PBXNativeTarget "DataDog" */;
 			buildPhases = (
+				58275EB594320D3099B3B25B /* [CP] Check Pods Manifest.lock */,
 				E43EC7642138F872009E3548 /* Sources */,
 				E43EC7652138F872009E3548 /* Frameworks */,
 				E43EC7662138F872009E3548 /* Headers */,
@@ -243,12 +249,34 @@
 			files = (
 				E49ABBCF213C6C61007296F8 /* .travis.yml in Resources */,
 				E49ABBD1213C6C7F007296F8 /* .gitignore in Resources */,
+				E423B9A6213E42E700B3B375 /* DataDog.podspec in Resources */,
 				E49ABBCD213C6C4E007296F8 /* README.md in Resources */,
 				E49ABBD4213C6E0B007296F8 /* Datadog_Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58275EB594320D3099B3B25B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DataDog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E43EC7642138F872009E3548 /* Sources */ = {
@@ -263,6 +291,7 @@
 /* Begin XCBuildConfiguration section */
 		E43EC77B2138F872009E3548 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F8CDDBAC3F767608660E2F8 /* Pods-DataDog.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -288,6 +317,7 @@
 		};
 		E43EC77C2138F872009E3548 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 346C497AB0A955D17CFEBBD0 /* Pods-DataDog.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

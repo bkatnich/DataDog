@@ -10,7 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - Moya (~> 11.0)
-  - SwiftyBeaver
+  - SwiftyBeaver (~> 1.6.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
 
-PODFILE CHECKSUM: 7f934ecda02e7fc8817be89987be619ee551b8b3
+PODFILE CHECKSUM: 25153b991e7dca445cf4ed51659350b1ea990fad
 
 COCOAPODS: 1.5.0
