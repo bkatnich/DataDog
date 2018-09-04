@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DataDog"
-  s.version      = "0.6.0"
+  s.version      = "0.6.1"
   s.summary      = "An iOS SDK library for interacting with the DataDog REST API."
 
   # This description is used to generate tags and improve search results.
